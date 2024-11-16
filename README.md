@@ -2,7 +2,7 @@
 
 ## SETU Linux Shell Script Assignment - David O' Connor
 
-## Table of Contents - Come back and fix
+## Table of Contents
 - [About the project](#about-the-project)
 - [Features](#features)
 - [Getting started](#getting-started)
