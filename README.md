@@ -6,9 +6,8 @@
 - [About the project](#about-the-project)
 - [Features](#features)
 - [Getting started](#getting-started)
-- [Dependencies](#dependencies)
-- [Installation](#installing-the-project-locally)
-- [Using the app](#using-the-app)
+- [Folder Structure](#folder-structure)
+- [Configuration](#configuration)
 - [Credits](#credits)
 
 ## About the project
