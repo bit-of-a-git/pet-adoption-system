@@ -20,6 +20,8 @@ function check_file_exists() {
         if [[ "${response}" =~ ^[Yy]$ ]]; then
             touch "${FILE}"
             echo -e "${PROMPT_TEXT}File '${FILE}' has been created.${CLEAR}"
+            pause
+            clear
         else
             echo -e "${ERROR}Cannot proceed without the database file. Exiting.${CLEAR}"
             exit 1
