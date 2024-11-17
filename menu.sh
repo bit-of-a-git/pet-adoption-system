@@ -18,6 +18,7 @@ function check_file_exists() {
         read -p "Would you like to create it now? (y/n): " -r response
         if [[ "${response}" =~ ^[Yy]$ ]]; then
             touch "${FILE}"
+            clear
             echo -e "${PROMPT_TEXT}File '${FILE}' has been created.${CLEAR}"
             pause
             clear
