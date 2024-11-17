@@ -52,6 +52,33 @@ function pet_report_menu() {
     done
 }
 
+# This function is called from the reports menu and takes three inputs, which it passes to two more
+# functions to search and display results respectively.
+function search_and_display() {
+    local field_name="${1}"
+    local field_column="${2}"
+    local search_term="${3}"
+
+    if [[ -z "${search_term}" ]]; then
+        echo -e "${ERROR}Error: search phrase cannot be empty${CLEAR}"
+        pause
+        return
+    elif [[ "${search_term}" =~ ,+ ]]; then
+        echo -e "${ERROR}Error: search terms should not include commas${CLEAR}"
+        pause
+        return
+    fi
+
+    # This calls search_by_field and stores the results in a variable
+    search_results=$(search_by_field "${field_name}" "${field_column}" "${search_term}")
+
+    # This passes the search results along with the field name and search term to display results,
+    # if any.
+    display_search_results "${search_results}" "${field_name}" "${search_term}"
+    echo ""
+    pause
+}
+
 # This function takes three inputs for field name, column, and search term, which it uses to
 # search using awk.
 function search_by_field() {
@@ -66,7 +93,7 @@ function search_by_field() {
 
 # This function takes three inputs, the results, the field name, and the search term. It counts the
 # results, and if greater than 0 it tells the user the count. It also gives the user the option to
-# see the matching records. 
+# see the matching records.
 function display_search_results() {
     local results="${1}"
     local field_name="${2}"
@@ -91,21 +118,4 @@ function display_search_results() {
     else
         echo -e "${ERROR}No results found for ${field_name}: '${search_term}'.${CLEAR}"
     fi
-}
-
-# This function is called from the reports menu and takes three inputs, which it passes to two more
-# functions to search and display results respectively.
-function search_and_display() {
-    local field_name="${1}"
-    local field_column="${2}"
-    local search_term="${3}"
-
-    # This calls search_by_field and stores the results in a variable
-    search_results=$(search_by_field "${field_name}" "${field_column}" "${search_term}")
-
-    # This passes the search results along with the field name and search term to display results,
-    # if any.
-    display_search_results "${search_results}" "${field_name}" "${search_term}"
-    echo ""
-    pause
 }

@@ -60,7 +60,7 @@ function search_all_fields() {
         echo -e "${ERROR}Error: search phrase cannot be empty${CLEAR}"
         pause
         return
-    elif [[ $search_term =~ ,+ ]]; then
+    elif [[ "${search_term}" =~ ,+ ]]; then
         echo -e "${ERROR}Error: search terms should not include commas${CLEAR}"
         pause
         return

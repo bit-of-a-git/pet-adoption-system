@@ -121,7 +121,7 @@ function delete_records() {
 
     # This outputs the contents of 'results' into the variable 'line'. The second sed command with
     # regex escapes special characters so they are treated literally. The first sed command deletes
-    # any line that matches the pattern within the brackets.
+    # any line that matches the pattern within the forward slashes.
     echo "${results}" | while IFS= read -r line; do
         sed -i "/$(echo "${line}" | sed 's/[^^]/[&]/g; s/\^/\\^/g')/d" "${FILE}"
     done
