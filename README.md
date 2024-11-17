@@ -24,10 +24,10 @@ This Pet Adoption System app, written in Bash, allows users to manage and track 
 
 ```bash
 # Clone the repo
-git clone https://github.com/bit-of-a-git/<replace>.git
+git clone https://github.com/bit-of-a-git/pet-adoption-system.git
 
 # Navigate to the project directory
-cd <replace>
+cd pet-adoption-system
 
 # Start the main menu
 ./menu.sh
