@@ -15,8 +15,7 @@ source ./reports.sh
 function check_file_exists() {
     if [[ ! -f "$FILE" ]]; then
         echo -e "${ERROR}Database file '${FILE}' does not exist.${CLEAR}"
-        echo "Would you like to create it now? (y/n)"
-        read -r response
+        read -p "Would you like to create it now? (y/n): " -r response
         if [[ "${response}" =~ ^[Yy]$ ]]; then
             touch "${FILE}"
             echo -e "${PROMPT_TEXT}File '${FILE}' has been created.${CLEAR}"

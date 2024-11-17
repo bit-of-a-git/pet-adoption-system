@@ -11,7 +11,7 @@ function display_table() {
     echo "Pet Name   | Species    | Breed              | Age | Gender | County    | Contact Name    | Mobile     | Email"
     echo "---------------------------------------------------------------------------------------------------------------------------"
 
-    # Format and print each line using awk
+    # Format and print each line using printf and awk. Printf left aligns strings, and awk passes column values into printf
     awk -F, '{
         printf "%-10s | %-10s | %-18s | %-3s | %-6s | %-9s | %-15s | %-10s | %s\n", $1, $2, $3, $4, $5, $6, $7, $8, $9
     }'
